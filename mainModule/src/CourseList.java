@@ -1,61 +1,66 @@
-import java.io.Serializable;
 import java.util.ArrayList;
-public class CourseList implements Serializable
+
+/**
+ *  A class containing a list of Course objects
+ * @author Sahil Simk
+ * @version 1.0
+ */
+public class CourseList
 {
   private ArrayList<Course> courses;
-  private boolean courseExists;
 
+  /**
+   * No-argument constructor initializing the CourseList.
+   */
   public CourseList()
   {
     courses=new ArrayList<Course>();
-    courseExists = false;
   }
+
+  /**
+   * Gets all the courses.
+   * @return all the courses
+   */
   public ArrayList<Course> getAllCourses()
   {
     return courses;
   }
 
-  public Course getCourse(int index){
+  /**
+   * Gets index of the courses.
+   * @return  index of all the courses
+   */
+
+  public Course getCourse(int index)
+  {
     return courses.get(index);
   }
 
-  public boolean getCourseExists(){
-    return courseExists;
+  public void addCourse(Course course)
+  {
+    courses.add(course);
   }
 
-  public void setCourseExists(boolean courseExists){
-    this.courseExists = courseExists;
+  public void removeCourse(int index)
+  {
+    courses.remove(index);
   }
 
-  public void addCourse(Course course){
-    int count = 0;
-    for (int i = 0; i < courses.size(); i++){
-      if (courses.get(i).equals(course)){
-        count = 1;
-        break;
-      }
-    }
-    if (count == 0){
-      this.setCourseExists(false);
-      courses.add(course);
-    }
-    else {
-      this.setCourseExists(true);
-    }
-
-  }
-
-  public void removeCourse(Course course){
-    courses.remove(course);
-  }
-
+  /**
+   * Gets a String representation of the CourseList.
+   * @return a String containing information about all Course objects in the list-each Course object ollowed by a new line character
+   */
+  /**
+   * Gets the size of the arrayList
+   * @return the size of the arrayList
+   */
   public String toString()
   {
     String str="";
     for(int i=0;i<courses.size();i++)
     {
-      str+="Course name:"+courses.get(i).getCourseName()+" Teacher:"+courses.get(i).getTeacher()+""
-          +" Number of students:"+courses.get(i).getNumberOfStudents();
+      str+="Course name:"+courses.get(i).getName()+" Teacher:"+courses.get(i).getTeacher()+" Room:"+courses.get(i).getRoom()+""
+          + "Exam type:"+courses.get(i).getExamType()+" Number of students:"+courses.get(i).getNumberOfStudents();
     }
     return str;
   }

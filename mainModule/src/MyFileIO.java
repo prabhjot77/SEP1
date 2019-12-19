@@ -31,33 +31,6 @@ public class MyFileIO
     }
   }
 
-  public void writeToFile(String fileName, Object obj, boolean append) throws FileNotFoundException, IOException
-  {
-    ObjectOutputStream writeToFile = null;
-
-    try
-    {
-      FileOutputStream fileOutStream = new FileOutputStream(fileName, append);
-      writeToFile = new ObjectOutputStream(fileOutStream);
-
-      writeToFile.writeObject(obj);
-    }
-    finally
-    {
-      if (writeToFile != null)
-      {
-        try
-        {
-          writeToFile.close();
-        }
-        catch (IOException e)
-        {
-          System.out.println("IO Error closing file " + fileName);
-        }
-      }
-    }
-  }
-
   // Writes the objects in the given array to a file with the given file name
   public void writeToFile(String fileName, Object[] objs) throws FileNotFoundException, IOException
   {

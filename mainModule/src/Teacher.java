@@ -1,14 +1,14 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * A class representing a teacher with a name, availability and contact.
- * @author Roksana Dziadowicz
+ * A class representing a teacher with a name, unavailability and contact.
+ * @author Sahil Simk
  * @version 1.0
  */
-public class Teacher implements Serializable
+public class Teacher
 {
   private String name;
+  private ArrayList<MyDate>availability;
   private String contact;
 
   /**
@@ -20,6 +20,7 @@ public class Teacher implements Serializable
   {
     this.name=name;
     this.contact=contact;
+    availability=new ArrayList<MyDate>();
   }
 
   /**
@@ -29,6 +30,15 @@ public class Teacher implements Serializable
   public String getName()
   {
     return name;
+  }
+
+  /**
+   * Gets the teacher's unavailability.
+   * @return the teacher's unavailability
+   */
+  public ArrayList<MyDate> getAvailability()
+  {
+    return availability;
   }
 
   /**
@@ -50,21 +60,30 @@ public class Teacher implements Serializable
   }
 
   /**
+   * Sets the teacher's unavailability
+   * @param availability if the teacher is available in this time
+   */
+  public void setAvailability(ArrayList<MyDate> availability)
+  {
+    this.availability = availability;
+  }
+
+  /**
    * Sets the teacher's contact.
    * @param contact the teacher's contact
    */
-  public void setContact(String contact)
-  {
-    this.contact = contact;
-  }
 
   /**
    * Returns a string representation of the teacher.
    * @return a string representation of the teacher in the format: "Name: name Availability: availability Contact: contact"
    */
+  public void setContact(String contact)
+  {
+    this.contact = contact;
+  }
   public String toString()
   {
-    return name;
+    return "Name:"+name+"\nAvailability:"+availability+"\nContact:"+contact;
   }
 
   /**
@@ -79,6 +98,6 @@ public class Teacher implements Serializable
       return false;
     }
     Teacher other=(Teacher) obj;
-    return name.equals(other.name) && contact.equals(other.contact);
+    return name.equals(other.name) && contact.equals(other.contact) && availability.equals(other.availability);
   }
 }
