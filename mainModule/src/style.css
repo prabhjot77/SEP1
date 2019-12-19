@@ -1,0 +1,65 @@
+
+
+.text-field,
+ .button{
+  -fx-text-fill: black;
+  -fx-background-color:  #E3E3E3;
+  -fx-padding: 10px;
+  -fx-prompt-text-fill: #696a6b;
+}
+
+.table-column {
+  -fx-alignment: CENTER;
+}
+
+.combo-box{
+    -fx-border-color: #E3E3E3;
+    -fx-border-style:solid;
+    -fx-border-width:1;
+    -fx-background-color:  #E3E3E3;
+}
+.combo-box-base .text{
+    -fx-fill: #696a6b;
+}
+.combo-box .arrow{
+    -fx-background-color:#2478E9;
+}
+.combo-box .arrow-button{
+    -fx-background-color: #E3E3E3;
+    -fx-border-style:none;
+}
+.combo-box .arrow-button{
+    -fx-background-color: #E3E3E3;
+}
+.combo-box .list-cell{
+    -fx-background-color: #E3E3E3;
+}
+
+.combo-box .list-view {
+    -fx-background-color: #E3E3E3;
+}
+
+.combo-box .list-view:hover {
+    -fx-background-color: black;
+}
+
+.tab-pane:top .tab-header-area .tab-header-background {
+  -fx-background-color: #E3E3E3;
+  -fx-max-width: 200px;
+  -fx-padding: 0;
+}
+
+.myTab {
+  -fx-text-base-color: black;
+  -fx-background-color:  #E3E3E3;
+  -fx-padding: 10px;
+  -fx-border-color: #E3E3E3;
+}
+
+.myTab:selected {
+  -fx-background-color: white;
+}
+
+.myTab:selected .tab-container .focus-indicator {
+  -fx-border-color: transparent;
+}
