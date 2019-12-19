@@ -1,17 +1,17 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * A class representing a time period with a start hour, start minute, end hour and end minute.
- * @author Roksana Dziadowicz
+ * @author Sahil Simk
  * @version 1.0
  */
-public class TimePeriod implements Serializable
+public class TimePeriod
 {
   private int startHour;
   private int startMinute;
   private int endHour;
   private int endMinute;
+  private ArrayList<MyDate>myDates;
 
   /**
    * Four-argument constructor.
@@ -26,6 +26,7 @@ public class TimePeriod implements Serializable
     this.startMinute=startMinute;
     this.endHour=endHour;
     this.endMinute=endMinute;
+    myDates=new ArrayList<MyDate>();
   }
 
   /**
@@ -36,6 +37,7 @@ public class TimePeriod implements Serializable
   {
     return startHour;
   }
+
   /**
    * Gets the exam's start minute.
    * @return the exam's start minute
@@ -44,6 +46,7 @@ public class TimePeriod implements Serializable
   {
     return startMinute;
   }
+
   /**
    * Gets the exam's end hour.
    * @return the exam's end hour
@@ -52,6 +55,7 @@ public class TimePeriod implements Serializable
   {
     return endHour;
   }
+
   /**
    * Gets the exam's end minute.
    * @return the exam's end minute
@@ -74,7 +78,11 @@ public class TimePeriod implements Serializable
    * Sets the exam's start minute.
    * @param startMinute what the exam's start minute will be set to
    */
-  public void setStartMinute(int startMinute) { this.startMinute = startMinute; }
+  public void setStartMinute(int startMinute)
+  {
+    this.startMinute = startMinute;
+  }
+
   /**
    * Sets the exam's end hour.
    * @param endHour what the exam's end hour will be set to
@@ -83,6 +91,7 @@ public class TimePeriod implements Serializable
   {
     this.endHour = endHour;
   }
+
   /**
    * Sets the exam's end minute.
    * @param endMinute what the exam's end minute will be set to
@@ -91,11 +100,29 @@ public class TimePeriod implements Serializable
   {
     this.endMinute = endMinute;
   }
-
-  /**
-   * Copies information from TimePeriod class.
-   * @return copied information from TimePeriod class
-   */
+  //??????????????????????????????????????????????????????/
+  public MyDate getDate(int day, int month, int year)
+  {
+    for(int i=0;i<myDates.size();i++)
+    {
+      if(!(myDates.get(i).getDay()==day && myDates.get(i).getMonth()==month && myDates.get(i).getYear()==year))
+      {
+        myDates.get(i);
+      }
+    }
+    return null;
+  }
+  public void addDate(int day, int month, int year)
+  {
+    MyDate myDate=new MyDate(day,month,year);
+    myDates.add(myDate);
+  }
+  public void removeDate(int day, int month, int year)
+  {
+    MyDate myDate=new MyDate(day,month,year);
+    myDates.remove(myDate);
+  }
+  //??????????????????????????????????????????????????????????????????????????????????/
   public TimePeriod copy()
   {
     return new TimePeriod(startHour,startMinute,endHour,endMinute);
@@ -107,7 +134,13 @@ public class TimePeriod implements Serializable
    */
   public String toString()
   {
-    return startHour+":"+startMinute+"-"+endHour+":"+endMinute;
+   String str="";
+   for(int i=0;i<myDates.size();i++)
+   {
+     str+="Date:"+myDates.get(i).getDay()+"/"+myDates.get(i).getMonth()+"/"+myDates.get(i).getYear()+""
+         + "\nTime period: Start:"+startHour+","+startMinute+" End:"+endHour+","+endMinute;
+   }
+   return str;
   }
 
   /**

@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="874.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="874.0" style="-fx-background-color: #262e4a;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="755.0">
          <children>
@@ -22,129 +17,25 @@
               <tabs>
                 <Tab styleClass="myTab" text="Exam Schedule">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="755.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="793.0">
                            <children>
-                              <ComboBox fx:id="selectSchedule" layoutX="117.0" layoutY="123.0" prefHeight="39.0" prefWidth="240.0" promptText="Selelct a schedule" />
-                              <Button fx:id="exportSchedule" layoutX="117.0" layoutY="224.0" mnemonicParsing="false" onAction="#exportSchedule" prefHeight="37.0" prefWidth="111.0" text="Export" />
-                              <Button fx:id="deleteSchedule" layoutX="246.0" layoutY="224.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="111.0" text="Delete" />
-                              <TextField fx:id="scheduleText" layoutX="625.0" layoutY="130.0" promptText="write name" />
-                              <Button fx:id="addSchedule" layoutX="625.0" layoutY="219.0" mnemonicParsing="false" onAction="#addSchedule" prefHeight="37.0" prefWidth="162.0" text="New Schedule" />
-                              <Label layoutX="644.0" layoutY="81.0" text="Create new Schedule" textFill="#ababab">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="scheduleWarning" layoutX="622.0" layoutY="271.0" opacity="0.0" text="Please enter a name to proceed" textFill="#ff6e6e" />
+                              <TextField fx:id="myText" layoutX="22.0" layoutY="65.0" minWidth="222.0" onKeyTyped="#keyEnter" prefHeight="37.0" prefWidth="222.0" promptText="Name" styleClass="text-field" stylesheets="@style.css" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                  <Tab styleClass="myTab" text="Exams">
-                      <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                              <children>
-                                  <TableView fx:id="examTable" layoutY="27.0" prefHeight="272.0" prefWidth="550.0">
-                                      <columns>
-                                          <TableColumn fx:id="selectCourseColumn" prefWidth="124.0" text="Course" />
-                                          <TableColumn fx:id="selectRoomColumn" prefWidth="113.0" text="Room" />
-                                          <TableColumn fx:id="dateColumn" prefWidth="143.0" text=" Date &amp; Time" />
-                                          <TableColumn fx:id="coExaminerColumn" prefWidth="169.0" text="Co-examiner" />
-                                      </columns>
-                                  </TableView>
-                                  <Button fx:id="deleteExam" layoutX="216.0" layoutY="320.0" mnemonicParsing="false" onAction="#deleteExam" text="Delete Exam" />
-                              <ComboBox fx:id="selectCourse" layoutX="670.0" layoutY="27.0" prefHeight="27.0" prefWidth="155.0" promptText="Select course" />
-                              <ComboBox fx:id="selectRoom" layoutX="670.0" layoutY="71.0" prefHeight="27.0" prefWidth="156.0" promptText="Select room" />
-                              <ComboBox fx:id="startHour" layoutX="669.0" layoutY="118.0" prefHeight="27.0" prefWidth="68.0" promptText="hh" />
-                              <ComboBox fx:id="startMinute" layoutX="764.0" layoutY="118.0" prefHeight="27.0" prefWidth="68.0" promptText="mm" />
-                              <DatePicker fx:id="selectDate" editable="false" layoutX="671.0" layoutY="212.0" prefHeight="37.0" prefWidth="162.0" promptText="Date" showWeekNumbers="true" />
-                              <Button fx:id="addExam" layoutX="715.0" layoutY="387.0" mnemonicParsing="false" onAction="#addExam" text="Add exam" />
-                              <TextField fx:id="coExaminer" layoutX="670.0" layoutY="269.0" prefHeight="37.0" prefWidth="165.0" promptText="co-examiner" />
-                              <ComboBox fx:id="endHour" layoutX="669.0" layoutY="165.0" prefHeight="27.0" prefWidth="68.0" promptText="hh" />
-                              <ComboBox fx:id="endMinute" layoutX="764.0" layoutY="165.0" prefHeight="27.0" prefWidth="68.0" promptText="mm" />
-                              <Label fx:id="examWarning" layoutX="681.0" layoutY="431.0" opacity="0.0" text="Please fill all required fields" textFill="#e87777" />
-                              <ComboBox fx:id="assignSchedule" layoutX="673.0" layoutY="325.0" prefHeight="27.0" prefWidth="164.0" promptText="Select schedule" />
-                              <Label fx:id="roomValidation" layoutX="618.0" layoutY="431.0" opacity="0.0" text="The room is already booked on selected date" textFill="#ff6e6e" />
-                              <Label fx:id="examExists" layoutX="690.0" layoutY="431.0" opacity="0.0" text="This exam already exists" textFill="#ff6e6e" />
-                              <Label fx:id="notEnoughSeats" layoutX="649.0" layoutY="431.0" opacity="0.0" text="Not enough seats. select another room" textFill="#ff6d6d" />
-                              <Label fx:id="notSuitable" layoutX="621.0" layoutY="431.0" opacity="0.0" text="Selected room is not suitable for oral exams" textFill="#ff6868" />
-                              <Label layoutX="607.0" layoutY="123.0" text="Start time" />
-                              <Label layoutX="610.0" layoutY="170.0" text="End time" />
-                              <Label layoutX="621.0" layoutY="32.0" text="Course" />
-                              <Label layoutX="624.0" layoutY="76.0" text="Room" />
-                              <Label layoutX="627.0" layoutY="222.0" text="Date" />
-                              <Label layoutX="593.0" layoutY="279.0" text="Co-examiner" />
-                              <Label layoutX="609.0" layoutY="330.0" text="Schedule" />
-                              </children></AnchorPane>
-                      </content>
-                  </Tab>
                 <Tab styleClass="myTab" text="Courses">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TableView fx:id="coursesTable" layoutX="145.0" layoutY="27.0" prefHeight="272.0" prefWidth="631.0">
-                                    <columns>
-                                        <TableColumn fx:id="courseNameColumn" prefWidth="217.0" text="Name" />
-                                        <TableColumn fx:id="teacherColumn" prefWidth="220.0" text="Teacher" />
-                                        <TableColumn fx:id="studentsColumn" prefWidth="192.0" text="Number of students" />
-                                    </columns>
-                                </TableView>
-                                <Button fx:id="deleteCourse" layoutX="416.0" layoutY="313.0" mnemonicParsing="false" onAction="#deleteCourse" text="Delete Course" />
-                                <TextField fx:id="courseName" layoutX="80.0" layoutY="392.0" promptText="Name" />
-                                <ComboBox fx:id="selectTeacher" layoutX="437.0" layoutY="397.0" prefHeight="27.0" prefWidth="120.0" promptText="Teacher" />
-                                <Button fx:id="addCourse" layoutX="711.0" layoutY="392.0" mnemonicParsing="false" onAction="#addCourse" text="Add Course" />
-                                <TextField fx:id="studentsNumber" layoutX="261.0" layoutY="392.0" onKeyTyped="#keyEnter" promptText="Number of students" />
-                              <Label fx:id="courseWarning" layoutX="650.0" layoutY="350.0" opacity="0.0" text="All fields are required" textFill="#ff7d7d">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="isWritten" layoutX="575.0" layoutY="398.0" prefHeight="27.0" prefWidth="111.0" promptText="Exam Type" />
-                              <Label fx:id="courseValidation" layoutX="650.0" layoutY="359.0" opacity="0.0" text="A course with this name already exists." textFill="#ff7171" />
-                            </children></AnchorPane>
-                    </content>
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
                 </Tab>
                  <Tab styleClass="myTab" text="Teachers">
-                     <content>
-                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                             <children>
-                                 <TableView fx:id="teachersTable" layoutX="16.0" layoutY="21.0" prefHeight="371.0" prefWidth="298.0">
-                                     <columns>
-                                         <TableColumn fx:id="teacherNameColumn" prefWidth="154.0" text="Name" />
-                                         <TableColumn fx:id="emailColumn" prefWidth="141.0" text="Email" />
-                                     </columns>
-                                 </TableView>
-                                 <Button fx:id="deleteTeacher" layoutX="342.0" layoutY="213.0" mnemonicParsing="false" onAction="#deleteTeacher" text="Delete Teacher" />
-                                 <TextField fx:id="teacherName" layoutX="665.0" layoutY="124.0" promptText="Name" />
-                                 <Button fx:id="addTeacher" defaultButton="true" layoutX="699.0" layoutY="250.0" mnemonicParsing="false" onAction="#addTeacher" text="Add Teacher" />
-                                 <TextField fx:id="email" layoutX="665.0" layoutY="176.0" promptText="Email" />
-                              <Label fx:id="teacherWarning" layoutX="696.0" layoutY="223.0" opacity="0.0" text="All fields required" textFill="#ff5959" />
-                              <Label fx:id="teacherExists" layoutX="685.0" layoutY="302.0" opacity="0.0" text="Teacher already exists" textFill="#ff6f6f" />
-                             </children></AnchorPane>
-                     </content>
+                    <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
                  </Tab>
                  <Tab styleClass="myTab" text="Rooms">
                     <content>
-                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TableView fx:id="roomsTable" layoutX="145.0" layoutY="27.0" prefHeight="272.0" prefWidth="631.0">
-                                <columns>
-                                  <TableColumn fx:id="roomNumberTab" prefWidth="196.0" text="Room no." />
-                                  <TableColumn fx:id="projectorTab" prefWidth="99.0" text="Projector" />
-                                    <TableColumn fx:id="hdmiTab" prefWidth="103.0" text="HDMI" />
-                                    <TableColumn fx:id="vgaTab" prefWidth="89.0" text="VGA" />
-                                    <TableColumn fx:id="seatsTab" prefWidth="133.0" text="Seats" />
-                                </columns>
-                              </TableView>
-                              <Button fx:id="deleterow" layoutX="362.0" layoutY="309.0" mnemonicParsing="false" onAction="#deleteRow" text="Delete Room" />
-                              <TextField fx:id="roomNumber" layoutX="59.0" layoutY="392.0" promptText="Room Number" />
-                              <ComboBox fx:id="projector" layoutX="437.0" layoutY="397.0" prefHeight="27.0" prefWidth="73.0" promptText="Projector" />
-                              <ComboBox fx:id="hdmi" layoutX="529.0" layoutY="397.0" prefHeight="27.0" prefWidth="77.0" promptText="HDMI" />
-                              <ComboBox fx:id="vgafield" layoutX="623.0" layoutY="397.0" prefHeight="27.0" prefWidth="77.0" promptText="VGA" />
-                              <Button fx:id="addRoom" layoutX="742.0" layoutY="392.0" mnemonicParsing="false" onAction="#addRoom" text="Add Room" />
-                              <TextField fx:id="seats" layoutX="252.0" layoutY="392.0" onKeyTyped="#keyEnter" promptText="Number of seats" />
-                              <Button fx:id="editRoom" layoutX="474.0" layoutY="309.0" mnemonicParsing="false" onAction="#editRoom" text="Edit Room" />
-                              <Label fx:id="roomExists" layoutX="595.0" layoutY="440.0" opacity="0.0" text="A room with provided number already exists" textFill="#ff6b6b" />
-                              <Label fx:id="roomWarning" layoutX="720.0" layoutY="362.0" opacity="0.0" text="All fields are required" textFill="#ff5e5e" />
-                           </children></AnchorPane>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
                  </Tab>
               </tabs>
@@ -159,9 +50,9 @@
                   <Image url="@minimize.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="selection" layoutX="356.0" prefHeight="48.0" prefWidth="427.0" style="-fx-background-color: #E3E3E3;">
+            <AnchorPane fx:id="selection" layoutX="310.0" prefHeight="48.0" prefWidth="473.0" style="-fx-background-color: #23283b;">
                <children>
-                  <Label layoutX="191.0" layoutY="12.0" style="-fx-text-fill: black;" text="Semester project" textFill="WHITE">
+                  <Label layoutX="191.0" layoutY="12.0" text="Semester project" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

@@ -1,17 +1,15 @@
-import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * A class representing a date with a day, month and year.
- * @author Roksana Dziadowicz
+ * @author Sahil Simk
  * @version 1.0
  */
-public class MyDate implements Serializable
+public class MyDate
 {
   private int day;
   private int month;
   private int year;
-  private TimePeriod hours;
+
 
   /**
    * Three-argument constructor.
@@ -19,22 +17,21 @@ public class MyDate implements Serializable
    * @param month the month of the exam
    * @param year the year of the exam
    */
-  public MyDate(int day, int month, int year, TimePeriod hours)
+  public MyDate(int day, int month, int year)
   {
-    this.hours = hours;
     this.day=day;
     this.month=month;
     this.year=year;
   }
 
   /**
-   * Sets the hour of the start of the exam and the end of the exam.
-   * @param hours
+   * Sets hours of exam.
+   * @param //hour the hour of the exam
    */
-  public void setHours(TimePeriod hours)
-  {
-    this.hours = hours;
-  }
+  //public void setHours(TimePeriod hour)
+  //{
+    //hours.add(hour);
+  //}
 
   /**
    * Sets the day of the exam.
@@ -44,6 +41,7 @@ public class MyDate implements Serializable
   {
     this.day = day;
   }
+
   /**
    * Sets the month of the exam.
    * @param month what the exam's month will be set to
@@ -52,6 +50,7 @@ public class MyDate implements Serializable
   {
     this.month = month;
   }
+
   /**
    * Sets the year of the exam.
    * @param year what the exam's year will be set to
@@ -89,21 +88,12 @@ public class MyDate implements Serializable
   }
 
   /**
-   * Gets hours of the exam.
-   * @return hours of the exam
-   */
-  public TimePeriod getHours()
-  {
-    return hours;
-  }
-
-  /**
    * Copies information from MyDate class.
    * @return copied information from MyDate class
    */
   public MyDate copy()
   {
-    return new MyDate(day,month,year,hours);
+    return new MyDate(day,month,year);
   }
 
   /**
@@ -112,7 +102,7 @@ public class MyDate implements Serializable
    */
   public String toString()
   {
-    return day + "." + month + "." + year + ", " + hours.toString();
+    return "Date:"+day+"/"+month+"/"+year;
   }
 
   /**
@@ -127,6 +117,6 @@ public class MyDate implements Serializable
       return false;
     }
     MyDate other=(MyDate)obj;
-    return (day==other.day && month==other.month && year==other.year);
+    return day==other.day && month==other.month && year==other.year;
   }
 }

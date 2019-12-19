@@ -1,23 +1,20 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * A class containing a list of Teacher objects.
- * @author Roksana Dziadowicz
+ * @author Sahil Simk
  * @version 1.0
  */
-public class TeacherList implements Serializable
+public class TeacherList
 {
   private ArrayList<Teacher> teachers;
-  private boolean teacherExists;
 
   /**
    * No-argument constructor initializing the TeacherList
    */
   public TeacherList()
   {
-    teachers = new ArrayList<Teacher>();
-    teacherExists = false;
+    teachers=new ArrayList<Teacher>();
   }
 
   /**
@@ -29,41 +26,6 @@ public class TeacherList implements Serializable
     return teachers;
   }
 
-  public Teacher getTeacher(int index){
-    return teachers.get(index);
-  }
-
-  public boolean isTeacherExists(){
-    return teacherExists;
-  }
-
-  public void setTeacherExists(boolean teacherExists){
-    this.teacherExists = teacherExists;
-  }
-
-  public void addTeacher(Teacher teacher){
-    int count = 0;
-    for (int i = 0; i < teachers.size(); i++){
-      if (teachers.get(i).equals(teacher)){
-        count = 1;
-        break;
-      }
-    }
-
-    if (count == 0){
-      this.setTeacherExists(false);
-      teachers.add( teacher );
-    }
-    else {
-      this.setTeacherExists(true);
-    }
-
-  }
-
-  public void removeTeacher(Teacher teacher){
-    teachers.remove( teacher );
-  }
-
   /**
    * Gets a String representation of the TeacherList.
    *
@@ -71,14 +33,11 @@ public class TeacherList implements Serializable
    */
   public String toString()
   {
-    String returnStr = "";
-
-    for (int i = 0; i < teachers.size(); i++)
+    String str="";
+    for(int i=0;i<teachers.size();i++)
     {
-      Teacher temp = teachers.get(i);
-
-      returnStr += temp.getName();
+      str+="Teacher's name:"+teachers.get(i).getName()+" Contact:"+teachers.get(i).getContact()+"Availability:"+teachers.get(i).getAvailability();
     }
-    return returnStr;
+    return str;
   }
 }

@@ -1,64 +1,69 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RoomList implements Serializable
+/**
+ * A class containing a list of Room objects.
+ * @author Sahil Simk
+ * @version 1.0
+ */
+public class RoomList
 {
-  private ArrayList<Room>room;
-  private boolean roomExists;
+  private ArrayList<Room>rooms;
+
+  /**
+   * No-argument constructor initializing the RoomList.
+   */
   public RoomList()
   {
-    room=new ArrayList<Room>();
-    roomExists = false;
+    rooms=new ArrayList<Room>();
   }
 
-  public boolean isRoomExists()
+  /**
+   * Adds a Room to the list.
+   * @param room the room to add to the list
+   */
+  public void addRoom(Room room)
   {
-    return roomExists;
+    rooms.add(room);
   }
 
-  public void setRoomExists(boolean roomExists)
+  /**
+   * Removes a Room from the list.
+   * @param room the room to remove from the list
+   */
+  public void removeRoom(Room room)
   {
-    this.roomExists = roomExists;
+    rooms.remove(room);
   }
 
-  public void addRoom(Room room1)
-  {
-    int count = 0;
-    for (int i = 0; i < room.size(); i++){
-      if (room.get(i).equals(room1)){
-        count = 1;
-      }
-    }
-    if (count == 0){
-      this.setRoomExists(false);
-      room.add(room1);
-    }
-    else {
-      this.setRoomExists(true);
-    }
-
-  }
-  public void removeRoom(Room room1)
-  {
-    room.remove(room1);
-  }
-  public void removeRoom(int index)
-  {
-    room.remove(index);
-  }
-  public Room getRoom(int index){
-    return room.get(index);
-  }
+  /**
+   * Gets all the rooms
+   * @return all the rooms
+   */
   public ArrayList<Room> getAllRooms()
   {
-    return room;
+    return rooms;
   }
+
+  /**
+   * Gets the size of the arrayList
+   * @return the size of the arrayList
+   */
+  public int size()
+  {
+    return rooms.size();
+  }
+
+  /**
+   * Gets a String representation of the RoomList.
+   * @return a String containing information about all Room objects in the list - each Room object followed by a new line character
+   */
   public String toString()
   {
     String str="";
-    for(int i=0;i<room.size();i++)
+    for(int i=0;i<rooms.size();i++)
     {
-      str+= room.get(i).toString() + "\n";
+      str+="Number:"+rooms.get(i).getNumber()+" HDMI:"+rooms.get(i).isHDMI()+" VGA:"+rooms.get(i).isVGA()+""
+          + "Projector:"+rooms.get(i).isProjector()+" Seats capacity:"+rooms.get(i).getSeatsCapacity();
     }
     return str;
   }
